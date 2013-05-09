@@ -12,4 +12,5 @@ group :development do
   gem "jeweler", "~> 1.8"
   gem "rcov", ">= 0"
   gem 'redgreen'
+  gem 'pry'
 end
