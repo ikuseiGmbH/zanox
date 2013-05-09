@@ -4,14 +4,14 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{zanox}
+  s.name = "zanox"
   s.version = "0.2.7"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Krispin Schulz", "Tobias Schlottke"]
-  s.date = %q{2011-02-16}
-  s.description = %q{The easy way to the zanox web services.}
-  s.email = %q{krispinone@googlemail.com}
+  s.date = "2013-05-09"
+  s.description = "The easy way to the zanox web services."
+  s.email = "krispinone@googlemail.com"
   s.extra_rdoc_files = [
     "README.textile"
   ]
@@ -21,54 +21,58 @@ Gem::Specification.new do |s|
     "README.textile",
     "Rakefile",
     "VERSION",
+    "examples/profile.rb",
+    "examples/program_application.rb",
     "examples/simple.rb",
+    "gem_graph.png",
     "lib/zanox.rb",
     "test/helper.rb",
     "test/test_zanox.rb",
     "zanox.gemspec"
   ]
-  s.homepage = %q{http://github.com/kr1sp1n/zanox}
+  s.homepage = "http://github.com/kr1sp1n/zanox"
   s.licenses = ["CC"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.4.1}
-  s.summary = %q{One gem to rule the zanox API.}
-  s.test_files = [
-    "examples/simple.rb",
-    "test/helper.rb",
-    "test/test_zanox.rb"
-  ]
+  s.rubygems_version = "2.0.3"
+  s.summary = "One gem to rule the zanox API."
 
   if s.respond_to? :specification_version then
-    s.specification_version = 3
+    s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
       s.add_runtime_dependency(%q<ruby-hmac>, [">= 0"])
-      s.add_runtime_dependency(%q<soap4r>, [">= 0"])
+      s.add_runtime_dependency(%q<savon>, ["~> 2.2.0"])
       s.add_development_dependency(%q<shoulda>, [">= 0"])
-      s.add_development_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_development_dependency(%q<bundler>, ["~> 1.3"])
+      s.add_development_dependency(%q<ruby-graphviz>, [">= 0"])
+      s.add_development_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
+      s.add_development_dependency(%q<redgreen>, [">= 0"])
       s.add_runtime_dependency(%q<ruby-hmac>, [">= 0"])
-      s.add_runtime_dependency(%q<soap4r>, [">= 0"])
+      s.add_runtime_dependency(%q<savon>, [">= 0"])
     else
       s.add_dependency(%q<ruby-hmac>, [">= 0"])
-      s.add_dependency(%q<soap4r>, [">= 0"])
+      s.add_dependency(%q<savon>, ["~> 2.2.0"])
       s.add_dependency(%q<shoulda>, [">= 0"])
-      s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-      s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+      s.add_dependency(%q<bundler>, ["~> 1.3"])
+      s.add_dependency(%q<ruby-graphviz>, [">= 0"])
+      s.add_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_dependency(%q<rcov>, [">= 0"])
+      s.add_dependency(%q<redgreen>, [">= 0"])
       s.add_dependency(%q<ruby-hmac>, [">= 0"])
-      s.add_dependency(%q<soap4r>, [">= 0"])
+      s.add_dependency(%q<savon>, [">= 0"])
     end
   else
     s.add_dependency(%q<ruby-hmac>, [">= 0"])
-    s.add_dependency(%q<soap4r>, [">= 0"])
+    s.add_dependency(%q<savon>, ["~> 2.2.0"])
     s.add_dependency(%q<shoulda>, [">= 0"])
-    s.add_dependency(%q<bundler>, ["~> 1.0.0"])
-    s.add_dependency(%q<jeweler>, ["~> 1.5.2"])
+    s.add_dependency(%q<bundler>, ["~> 1.3"])
+    s.add_dependency(%q<ruby-graphviz>, [">= 0"])
+    s.add_dependency(%q<jeweler>, ["~> 1.8"])
     s.add_dependency(%q<rcov>, [">= 0"])
+    s.add_dependency(%q<redgreen>, [">= 0"])
     s.add_dependency(%q<ruby-hmac>, [">= 0"])
-    s.add_dependency(%q<soap4r>, [">= 0"])
+    s.add_dependency(%q<savon>, [">= 0"])
   end
 end
 
