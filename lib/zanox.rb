@@ -23,7 +23,7 @@ module Zanox
         unless Zanox::API::Session.secret_key.nil?
           timestamp = Zanox::API.get_timestamp
           nonce = Zanox::API.generate_nonce
-          signature = Zanox::API.create_signature(Zanox::API::Session.secret_key, "publisherservice"+method.downcase + timestamp + nonce)
+          signature = Zanox::API.create_signature(Zanox::API::Session.secret_key, "publisherservice"+method.gsub("_","").downcase + timestamp + nonce)
           options.merge!(:timestamp=>timestamp, :nonce=>nonce, :signature=>signature)
         end
 
@@ -99,7 +99,7 @@ module Zanox
         unless Zanox::API.secret_key.nil?
           timestamp = Zanox::API.get_timestamp
           nonce = Zanox::API.generate_nonce
-          signature = Zanox::API.create_signature(Zanox::API.secret_key, "connectservice"+method.downcase + timestamp + nonce)
+          signature = Zanox::API.create_signature(Zanox::API.secret_key, "connectservice"+method.gsub("_","").downcase + timestamp + nonce)
           options.merge!(:timestamp=>timestamp, :nonce=>nonce, :signature=>signature)
         end
         @wsdl = 'https://auth.zanox-affiliate.de/wsdl/2010-02-01' unless !!@wsdl
@@ -278,7 +278,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Programs"
+      "_programs"
     end
 
     def self.is_key?(id)
@@ -295,7 +295,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Admedia"
+      "_admedia"
     end
 
     def self.is_key?(id)
@@ -312,7 +312,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Products"
+      "_products"
     end
 
     def self.is_key?(id)
@@ -346,7 +346,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Sales"
+      "_sales"
     end
 
     def self.is_key?(id)
@@ -363,7 +363,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Leads"
+      "_leads"
     end
 
     def self.is_key?(id)
@@ -380,7 +380,7 @@ module Zanox
     end
 
     def self.pluralize
-      "MediaSlots"
+      "_media_slots"
     end
 
     def self.is_key?(id)
@@ -397,7 +397,7 @@ module Zanox
     end
 
     def self.pluralize
-      "Applications"
+      "_applications"
     end
 
     def self.is_key?(id)
@@ -414,7 +414,7 @@ module Zanox
     end
 
     def self.pluralize
-      "ProgramApplications"
+      "_program_applications"
     end
 
     def self.is_key?(id)
