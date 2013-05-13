@@ -12,4 +12,5 @@ group :development do
   gem "jeweler", "~> 1.8"
   gem "simplecov"
   gem 'pry'
+  gem 'pry-debugger'
 end
