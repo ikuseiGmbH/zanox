@@ -418,4 +418,19 @@ module Zanox
     end
   end
 
+  module ReportBasic
+    include Item
+    extend Item
+
+    def self.key_symbol
+      :reportBasicId
+    end
+
+    def self.pluralize
+      "_report_basic"
+    end
+
+  end
+
+
 end
