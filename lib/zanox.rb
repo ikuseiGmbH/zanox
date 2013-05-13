@@ -184,12 +184,11 @@ module Zanox
       puts "found query strings: "+queries.to_s if $DEBUG
 
       class_name = self.name.split('::').last
-      api_method = ''
+      class_name = "_#{class_name.downcase}"
 
       if(ids.size==0 && queries.size==0)
         api_method = 'get'+class_name
         response = Zanox::API.request(api_method, options)
-        class_name.sub!(/\b\w/) { $&.downcase }
         item_method = (class_name+'Item').to_sym
         if(response.respond_to?(item_method))
           item = self.new(response.method(item_method).call)
@@ -198,14 +197,12 @@ module Zanox
       end
 
       if(ids.size>0)
-
         api_method = 'get'+class_name
 
         ids.each do |id|
           options.merge!(self.key_symbol=>id)
           response = Zanox::API.request(api_method, options)
 
-          class_name.sub!(/\b\w/) { $&.downcase }
           item_method = (class_name+'Item').to_sym
 
           if(response.respond_to?(item_method))
@@ -217,7 +214,6 @@ module Zanox
 
       if(queries.size>0)
         api_method = 'search'+self.pluralize
-        class_name.sub!(/\b\w/) { $&.downcase }
         queries.each do |query|
           options.merge!(:query=>query)
           response = Zanox::API.request(api_method, options)
