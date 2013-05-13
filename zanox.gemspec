@@ -47,7 +47,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<ruby-graphviz>, [">= 0"])
       s.add_development_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_development_dependency(%q<rcov>, [">= 0"])
-      s.add_development_dependency(%q<redgreen>, [">= 0"])
       s.add_runtime_dependency(%q<ruby-hmac>, [">= 0"])
       s.add_runtime_dependency(%q<savon>, [">= 0"])
     else
@@ -58,7 +57,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<ruby-graphviz>, [">= 0"])
       s.add_dependency(%q<jeweler>, ["~> 1.8"])
       s.add_dependency(%q<rcov>, [">= 0"])
-      s.add_dependency(%q<redgreen>, [">= 0"])
       s.add_dependency(%q<ruby-hmac>, [">= 0"])
       s.add_dependency(%q<savon>, [">= 0"])
     end
@@ -70,7 +68,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<ruby-graphviz>, [">= 0"])
     s.add_dependency(%q<jeweler>, ["~> 1.8"])
     s.add_dependency(%q<rcov>, [">= 0"])
-    s.add_dependency(%q<redgreen>, [">= 0"])
     s.add_dependency(%q<ruby-hmac>, [">= 0"])
     s.add_dependency(%q<savon>, [">= 0"])
   end
