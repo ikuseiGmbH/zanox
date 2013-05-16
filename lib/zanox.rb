@@ -30,11 +30,12 @@ module Zanox
         @wsdl = 'http://api.zanox.com/wsdl/2011-03-01/' unless !!@wsdl
         @driver = Savon.client(wsdl: @wsdl)
         @driver.ssl_verify_mode = OpenSSL::SSL::VERIFY_NONE if $DEBUG
-        @driver.call(method.to_sym, message: options)
+        @driver.call(method.to_sym, message: options).hash
       rescue Exception => e
         puts
         puts "ERROR"
         puts e.message
+        nil
       end
     end
 
@@ -105,11 +106,12 @@ module Zanox
         @wsdl = 'https://auth.zanox-affiliate.de/wsdl/2010-02-01' unless !!@wsdl
         @driver = Savon.client(wsdl: @wsdl)
         @driver.ssl_verify_mode = OpenSSL::SSL::VERIFY_NONE if $DEBUG
-        @driver.call(method.to_sym, message: options)
+        @driver.call(method.to_sym, message: options).hash
       rescue Exception => e
         puts
         puts "ERROR"
         puts e.message
+        nil
       end
     end
 
@@ -145,34 +147,37 @@ module Zanox
 
       response = Zanox::API.request(api_method, options)
 
-      class_name.sub!(/\b\w/) { $&.downcase }
+      # class_name.sub!(/\b\w/) { $&.downcase }
 
-      m1_name = (class_name+'Items').to_sym
-      m2_name = (class_name+'Item').to_sym
+      # m1_name = (class_name+'Items').to_sym
+      # m2_name = (class_name+'Item').to_sym
 
-      if(response.respond_to?(m1_name) && response.items!=0)
-        items_object = response.method(m1_name).call
-        if(items_object.respond_to?(m2_name))
-          item_object = items_object.method(m2_name).call
-          if(item_object.is_a?(Array))
-            item_list = item_object
-          else
-            item_list = [item_object]
-          end
-          [*item_object].each do |item|
-            items.push self.new(item)
-          end
-        end
-      else
-        # found nothing handling
-        #return items
-      end
+      # if(response.respond_to?(m1_name) && response.items!=0)
+      #   items_object = response.method(m1_name).call
+      #   if(items_object.respond_to?(m2_name))
+      #     item_object = items_object.method(m2_name).call
+      #     if(item_object.is_a?(Array))
+      #       item_list = item_object
+      #     else
+      #       item_list = [item_object]
+      #     end
+      #     [*item_object].each do |item|
+      #       items.push self.new(item)
+      #     end
+      #   end
+      # else
+      #   # found nothing handling
+      #   #return items
+      # end
 
-      return items
+      # return items
 
+      response
     end
 
     def find_other(args, options)
+#      binding.pry
+#TODO refactor
       ids = []
       queries = []
       items = []
